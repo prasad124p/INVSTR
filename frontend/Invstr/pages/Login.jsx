@@ -34,11 +34,13 @@ const Login = () => {
           onChange={(e)=> setRole(e.target.value)}
         >
           <option value="" disabled hidden> Select Role</option>
+          <option disabled>────────────────────────</option>
           <option className='text-black' value="Startup">Startup</option>
           <option disabled>────────────────────────</option>
           <option className='text-black' value="Investor">Investor</option>
           <option disabled>────────────────────────</option>
           <option className='text-black' value="Admin">Admin</option>
+          <option disabled>────────────────────────</option>
         </select>
 
         <button
