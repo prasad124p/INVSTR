@@ -1,3 +1,4 @@
+const { string } = require("joi");
 const mongoose=require("mongoose");
 
 const investorSchema=mongoose.Schema({
@@ -8,6 +9,10 @@ const investorSchema=mongoose.Schema({
     FieldOfExpertise:{
         type:String,
         required:true
+    },
+    email:{
+        type:String,
+        required: true
     },
     InvestorType:{
         type:String,
