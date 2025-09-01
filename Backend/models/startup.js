@@ -9,18 +9,18 @@
         type:String,
         required:true
     },
-    InvestorName: { 
-        type: String,
-        required: true
-    },
-    FundingRoundSize: { 
-        type: Number, 
-        required: true
-    },
-    RaisedTillDate:{
-        type:Number,
-        required:true
-    },
+    // InvestorName: { 
+    //     type: String,
+    //     required: true
+    // },
+    // FundingRoundSize: { 
+    //     type: Number, 
+    //     required: true
+    // },
+    // RaisedTillDate:{
+    //     type:Number,
+    //     required:true
+    // },
     role: {
         type: String,
         enum: ["startup", "investor", "admin"], 

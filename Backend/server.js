@@ -1,32 +1,36 @@
 const express = require("express");
 const app = express();
 const dotenv = require("dotenv").config();
-const connectDb=require("./config/connectionDb");
+const connectDb = require("./config/connectionDb");
 const cors = require("cors");
-const authRouter= require("./routes/authRouter")
 
+// Routes
+const authRouter = require("./routes/authRouter");
+const aboutRouter = require("./routes/about");
+const startupsRouter = require("./routes/startups");
+const investorsRouter = require("./routes/investors");
+const adminRouter = require("./routes/admin");
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
+
+// Connect to MongoDB
 connectDb();
 
+// Middleware
 app.use(cors());
-
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-app.use(express.urlencoded({extended:true}));
+// Mount Routes
+app.use("/", aboutRouter);
+app.use("/auth", authRouter);       // Signup/Login
+app.use("/startups", startupsRouter);
+app.use("/investors", investorsRouter);
+app.use("/admin", adminRouter);
 
-app.use("/", require("./routes/about"));
+// Removed duplicate "/login" route — login is already handled via /auth/login
 
-app.use("/auth", authRouter);   // 👈 this mounts all routes under /auth
-
-app.use("/startups", require("./routes/startups"));
-
-app.use("/investors", require("./routes/investors"));
-
-app.use("/admin", require("./routes/admin"));
-
-app.use("/login", require("./routes/authRouter"))
-
-app.listen(PORT, (err) => {
-  console.log(`app is listening port ${PORT}`);
+// Start server
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
