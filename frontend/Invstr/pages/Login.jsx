@@ -1,13 +1,44 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import axios from "axios";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [role,setRole]= useState("")
+  const [role,setRole]= useState("");
+  const navigate =useNavigate();
+
+
+  const handleSubmit= async(e)=>{
+    e.preventDefault();
+  
+  try{
+    const res = await axios.post("http://localhost:5000/auth/login", {
+      email,
+      password,
+      role,
+    });
+
+  if(res.data.token){
+    localStorage.setItem("authToken", res.data.token);
+    localStorage.setItem("role",role);
+
+    if(role==="Startup")navigate("/startup-dashboard")
+    if(role==="Investor")navigate("/Investor-dashboard")
+    if(role==="Admin")navigate("/Admin-dashboard")
+  }else{
+    alert("Invalid User Credential")
+    }
+  }catch(error) {
+      console.error(error);
+      alert("Login failed. Please try again.");
+    }
+  };
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
       <form className="flex flex-col bg-white p-10 rounded-2xl shadow-md w-96">
+        onSubmit={handleSubmit};
         <h2 className="text-black font-extrabold text-2xl mb-6 text-center">Login</h2>
 
         <input
@@ -49,6 +80,7 @@ const Login = () => {
         >
           Submit
         </button>
+        <p className='mt-5'>Dont have an account?<a href="" className='text-blue-600' onClick={()=>navigate("./signup")}> Sign Up</a></p>
       </form>
     </div>
   );

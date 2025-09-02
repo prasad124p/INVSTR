@@ -62,8 +62,8 @@ const login = async (req, res) => {
       return res.status(404).json({ message: "User not found", success: false });
     }
 
-    const isMatch = await bcrypt.compare(password, user.password);
-    if (!isMatch) {
+    const isEqual = await bcrypt.compare(password, user.password);
+    if (!isEqual) {
       return res.status(401).json({ message: "Incorrect password", success: false });
     }
 
@@ -71,7 +71,6 @@ const login = async (req, res) => {
     const token = jwt.sign(
       { id: user._id, role: user.role },
       process.env.JWT_SECRET || "secretkey",
-      { expiresIn: "7d" }
     );
 
     res.status(200).json({ message: "Login successful", token, success: true });

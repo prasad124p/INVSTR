@@ -9,6 +9,11 @@
         type:String,
         required:true
     },
+     password: {
+        type: String,
+        required: true,
+        minlength: 5  
+    },
     // InvestorName: { 
     //     type: String,
     //     required: true

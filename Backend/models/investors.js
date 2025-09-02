@@ -14,6 +14,11 @@ const investorSchema=mongoose.Schema({
         type:String,
         required: true
     },
+        password: {
+        type: String,
+        required: true,
+        minlength: 5
+    },
     InvestorType:{
         type:String,
         required:true,
