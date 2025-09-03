@@ -5,6 +5,7 @@ import axios from 'axios';
 import Home from '../pages/Home';
 import InvestorHome from '../pages/InvestorHome';
 import Login from '../pages/Login';
+import Signup from "../pages/Signup"
 
 const getAllStartups=async()=>{
   let allStartups=[];
@@ -17,7 +18,8 @@ const getAllStartups=async()=>{
 const router=createBrowserRouter([
   {path:"/",element:<Home/>},
   {path:"/investorHome",element:<InvestorHome/>},
-  {path:"/login",element:<Login/>}
+  {path:"/login",element:<Login/>},
+  {path:"/signup",element:<Signup/>}
 ])
 
 function App() {

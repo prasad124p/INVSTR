@@ -38,8 +38,8 @@ const signup = async (req, res) => {
     res.status(201).json({ message: "Signup successful", success: true });
 
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: "Internal server error", success: false });
+    console.error("Signup Error:", error.message, error);
+    res.status(500).json({ message: error.message || "Internal server error", success: false });
   }
 };
 

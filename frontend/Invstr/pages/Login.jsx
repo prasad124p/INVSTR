@@ -37,8 +37,7 @@ const Login = () => {
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
-      <form className="flex flex-col bg-white p-10 rounded-2xl shadow-md w-96">
-        onSubmit={handleSubmit};
+      <form className="flex flex-col bg-white p-10 rounded-2xl shadow-md w-96" onSubmit={handleSubmit}>
         <h2 className="text-black font-extrabold text-2xl mb-6 text-center">Login</h2>
 
         <input
@@ -80,7 +79,7 @@ const Login = () => {
         >
           Submit
         </button>
-        <p className='mt-5'>Dont have an account?<a href="" className='text-blue-600' onClick={()=>navigate("./signup")}> Sign Up</a></p>
+        <p className='mt-5'>Dont have an account?<span className='text-blue-600' onClick={()=>navigate("/signup")}> Sign Up</span></p>
       </form>
     </div>
   );
