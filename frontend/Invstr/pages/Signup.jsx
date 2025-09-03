@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { useEffect } from 'react';
 
 const Signup = () => {
   const [email, setEmail] = useState("");
@@ -8,7 +9,20 @@ const Signup = () => {
   const [role,setRole]= useState("")
   const [name,setName]=useState("")
   const navigate =useNavigate();
+  const location=useLocation();
 
+  useEffect(() => {
+  
+  
+    return () => {
+      const queryParams=new URLSearchParams(location.search);
+      const queryRole=queryParams.get("role");
+      if(queryRole){
+        setRole(queryRole.toLowerCase());
+      }
+    }
+  }, [location])
+  
   const handleSignup = async(e)=>{
     e.preventDefault();
 
