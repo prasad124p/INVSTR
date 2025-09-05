@@ -14,13 +14,13 @@ const Signup = () => {
   useEffect(() => {
   
   
-    return () => {
+    
       const queryParams=new URLSearchParams(location.search);
       const queryRole=queryParams.get("role");
       if(queryRole){
         setRole(queryRole.toLowerCase());
       }
-    }
+    
   }, [location])
   
   const handleSignup = async(e)=>{
@@ -83,11 +83,11 @@ const Signup = () => {
         >
           <option value="" disabled hidden> Select Role</option>
           <option disabled>────────────────────────</option>
-          <option className='text-black' value="Startup">Startup</option>
+          <option className='text-black' value="startup">Startup</option>
           <option disabled>────────────────────────</option>
-          <option className='text-black' value="Investor">Investor</option>
+          <option className='text-black' value="investor">Investor</option>
           <option disabled>────────────────────────</option>
-          <option className='text-black' value="Admin">Admin</option>
+          <option className='text-black' value="admin">Admin</option>
           <option disabled>────────────────────────</option>
         </select>
 
