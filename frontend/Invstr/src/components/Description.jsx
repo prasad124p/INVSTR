@@ -2,7 +2,7 @@ import React from 'react'
 
 const Description = () => {
   return (
-    <div className="flex justify-center mt-40">
+    <div className="flex justify-center mt-60 mb-10">
       <div className=" bg-gray-300 shadow-lg border border-gray-200 w-[600px] rounded-2xl p-8 flex flex-col">
         <h2 className="text-2xl font-bold text-gray-800 text-center mb-4">
           How INVSTR Works

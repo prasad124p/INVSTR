@@ -5,6 +5,7 @@ import MainHome from '../src/components/MainHome';
 import Description from '../src/components/Description';
 import Features from '../src/components/Features';
 import Landing from '../src/components/Landing';
+import Footer from '../src/components/footer';
 
 
 
@@ -20,6 +21,7 @@ const Home = () => {
         <MainHome/>
         <Description/>
         <Features/>
+        <Footer/>
       </div>
     </div>
   )

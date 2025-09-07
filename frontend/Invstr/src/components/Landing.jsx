@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Lpg2 from "../assets/Lpg2.png";
 import Lpg3 from "../assets/Lpg3.png";
 import Lpg4 from "../assets/Lpg4.png";
+import chairs from "../assets/chairs.jpg";
 
 const slides = [
   {
@@ -44,7 +45,7 @@ const Landing = () => {
   
 
   return (
-        <div className="relative overflow-hidden">
+        <div className="mb-10 relative overflow-hidden min-h-screen bg-cover bg-bottom">
       {/* Slides */}
       <div
         className="flex transition-transform duration-1000"

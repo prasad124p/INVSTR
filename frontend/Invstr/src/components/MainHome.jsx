@@ -7,7 +7,7 @@ const MainHome = () => {
         navigate(`/signup?role=${role}`)
     };
   return (
-    <div className='mt-5'>
+    <div className='mt-5 mb-10'>
       <div className='ml-115 mr-85 py-20'>
         <h1 className=' flex-wrap text-5xl font-bold mb-4'>Connecting Startups, Investors & Innovators On One Platform </h1>
         <p className='px-45 mt-5 text-2xl font-semibold'>Discover, Invest and Grow</p>
