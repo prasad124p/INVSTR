@@ -6,6 +6,9 @@ import Home from '../pages/Home';
 import InvestorHome from '../pages/InvestorHome';
 import Login from '../pages/Login';
 import Signup from "../pages/Signup"
+import About from '../pages/About';
+import Services from '../pages/Services';
+import Portfolio from '../pages/Portfolio';
 
 const getAllStartups=async()=>{
   let allStartups=[];
@@ -19,7 +22,10 @@ const router=createBrowserRouter([
   {path:"/",element:<Home/>},
   {path:"/investorHome",element:<InvestorHome/>},
   {path:"/login",element:<Login/>},
-  {path:"/signup",element:<Signup/>}
+  {path:"/signup",element:<Signup/>},
+  {path:"/About",element:<About/>},
+  {path:"/Services",element:<Services/>},
+  {path:"/Portfolio",element:<Portfolio/>}
 ])
 
 function App() {

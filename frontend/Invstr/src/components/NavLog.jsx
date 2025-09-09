@@ -4,30 +4,31 @@ import { useNavigate } from "react-router-dom";
 
 const NavLog = () => {
     const navigate = useNavigate();
+    const isLoggedIn= !!localStorage.getItem("token");
   return (
     <div>
-      <section className="bg-oklch(98% 0.016 73.684) flex items-center justify-between p-4">
+      <section className="bg-gray-400 flex items-center justify-between px-6 py-3">
         <div>
           <img
             src={INVSTR}
             alt="INVSTR Logo"
-            className="w-25 h-auto py-2"
+            className="w-24 h-auto py-2"
           />
         </div>
-        <div className="flex space-x-6 text-black font-semibold">
-          <div className="flex item-center justify-between p-4 text-sm px-20 space-x-8">
+        <div className="flex text-black items-center space-x-8 font-bold justify-center">
+          <div className="flex  space-x-8 font-semibold text-sm ">
             <div className="group ">
-              <h3>OUR SERVICES</h3>
+              <h3 onClick={()=>navigate("/Services")}>OUR SERVICES</h3>
             <hr className="border-none opacity-0 group-hover:opacity-100 transition-opacity duration-500  outline-none h-1 rounded-full bg-gray-700 w-4/5 m-auto " />
             </div>
 
             <div className="group">
-              <h3>ABOUT US</h3>
+              <h3 onClick={()=>navigate("/About")}>ABOUT US</h3>
             <hr className="border-none opacity-0 group-hover:opacity-100 transition-opacity duration-500  outline-none h-1 rounded-full bg-gray-700 w-4/5 m-auto " />
             </div>
 
             <div className="group">
-              <h3>OUR PORTFOLIO</h3>
+              <h3 onClick={()=>navigate("/Portfolio")}>OUR PORTFOLIO</h3>
             <hr className="border-none opacity-0 group-hover:opacity-100 transition-opacity duration-500  outline-none h-1 rounded-full bg-gray-700 w-4/5 m-auto " />
             </div>
 
@@ -40,9 +41,21 @@ const NavLog = () => {
               <h3>CONTACT US</h3>
             <hr className="border-none opacity-0 group-hover:opacity-100 transition-opacity duration-500  outline-none h-1 rounded-full bg-gray-700 w-4/5 m-auto " />
             </div>
-
           </div>
-        <button   className='bg-cyan-950 rounded-xl px-6 py-2 text-white hover:bg-green-800 hover:scale-105 transition' onClick={()=>navigate("/Login")}> Login </button>
+          {isLoggedIn ?(
+              <button
+                className='bg-cyan-950 rounded-xl px-6 py-4 text-white hover:bg-green-800 self-center hover:scale-105 transition'
+                onClick={()=>{
+                localStorage.removeItem("token");
+                navigate("/");
+              }}>Logout</button>
+            ):(
+              <button  
+              className='bg-cyan-950 rounded-xl px-6 py-2 text-white hover:bg-green-800 self-center hover:scale-105 transition'
+              onClick={()=>{navigate("/Login")}}>
+                Login
+              </button>
+            )}
         </div>
       </section>
     </div>
@@ -50,3 +63,4 @@ const NavLog = () => {
 };
 
 export default NavLog;
+
